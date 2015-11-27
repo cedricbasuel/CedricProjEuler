@@ -1,2 +1,2 @@
 # CedricProjEuler
-project euler codes
+R codes to select Project Euler problems
