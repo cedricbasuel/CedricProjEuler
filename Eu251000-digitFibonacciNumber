@@ -1,0 +1,26 @@
+fib=c()
+fib[1]=1
+fib[2]=2
+
+ithfib = function(i){
+  for(j in 3:i){
+    fib[j] = fib[j-1] + fib[j-2]
+  }
+  return(fib[i])
+}
+
+fibDigits = function(x){
+  y=as.character(x)
+  return(nchar(y))
+}
+
+startime = proc.time()
+curt = 0
+i = 3
+while(curt<1000){
+  fibnumber = ithfib(i)
+  curt = fibDigits(fibnumber)
+  i = i + 1
+}
+fibnumber
+proc.time() - startime
