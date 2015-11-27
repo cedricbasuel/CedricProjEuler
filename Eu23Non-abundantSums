@@ -1,0 +1,41 @@
+sumDivisors = function(x){
+  summy = 0
+  if(x==0){return(0)}
+  else if(x==1){return(1)}
+  else{
+    for(i in 1:floor(x/2) ){
+      if(x%%i==0){
+        summy=summy + i
+      }
+    }
+    return(summy)
+  }
+}
+
+isAbundant = function(x){
+  if(x<sumDivisors(x)){return(T)}
+  else{return(F)}
+}
+
+Abundantable = function(x){
+  answersTF = c()
+  for(i in 1:ceiling(x/2)){
+    if(isAbundant(i) & isAbundant(x-i)){
+      answersTF=append(answersTF,1)
+      }
+  }
+  if(sum(answersTF)>0){
+    return(T)
+  }
+  else{return(F)}
+}
+
+startime = proc.time()
+abundantables=c()
+for(i in 1:28123){
+  if(Abundantable(i)){
+    abundantables = append(abundantables,i)
+  }
+}
+sum(abundantables)
+proc.time() - startime
