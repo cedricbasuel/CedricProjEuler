@@ -1,5 +1,14 @@
 isCoprime = function(x,y){
-  if(x%%y==0 | y%%x==0){
+  mini = min(x,y)
+  maxi = max(x,y)
+  if(mini == 1){return(T)}
+  else if(mini == 2){
+    if(maxi %% 2 == 0){
+      return(F)
+    }
+    else{return(T)}
+  }
+  else if(x %% y == 0 | y %% x == 0 & (mini != 1 | mini!= 2)){
     return(F)
   }
   else{
