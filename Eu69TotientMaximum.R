@@ -38,17 +38,23 @@ EulerPhiRatio = function(x){
   if(x %% 2 != 0){
     ifCoprimes = append(ifCoprimes,1)
   }
+  #print(ifCoprimes)
   for(i in 3:(x-1)){
     if(isCoprime(x,i)){
       ifCoprimes = append(ifCoprimes,1)
       #print(i)
     }
   }
+  #print(ifCoprimes)
   return(x/(sum(ifCoprimes)+1))
 }
 
+startime = proc.time()
 EulerPhiRatioMat = c()
+EulerPhiRatioMat[1] = 0
 for(i in 2:1000000){
   EulerPhiRatioMat[i] = EulerPhiRatio(i)
 }
-EulerPhiRatioMat = cbind(as.data.frame(2:999999),as.data.frame(EulerPhiRatioMat))
+
+EulerPhiRatioMat = cbind(as.data.frame(1:1000000),as.data.frame(EulerPhiRatioMat))
+proc.time() - startime
