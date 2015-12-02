@@ -1,0 +1,19 @@
+isCoprime = function(x,y){
+  if(x%%y==0 | y%%x==0){
+    return(F)
+  }
+  else{
+    mini = min(x,y)
+    maxi = max(x,y)
+    factorsMin = c()
+    for(i in 2:ceiling(mini/2)){
+      if(mini %% i == 0){
+        factorsMin = append(factorsMin,i)
+      }
+    }
+    if(sum(maxi %% factorsMin == 0) == 0){
+      return(T)
+    }
+    else{return(F)}
+  }
+}
