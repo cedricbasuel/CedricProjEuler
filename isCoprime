@@ -8,7 +8,7 @@ isCoprime = function(x,y){
     }
     else{return(T)}
   }
-  else if(x %% y == 0 | y %% x == 0 & (mini != 1 | mini!= 2)){
+  else if((x %% y == 0 | y %% x == 0) & (mini != 1 & mini!= 2)){
     return(F)
   }
   else{
